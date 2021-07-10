@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/daan/Documents/vscodeprojects/compiler/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -o CMakeFiles/compiler.dir/main.c.o   -c /home/daan/Documents/vscodeprojects/compiler/main.c",
+  "file": "/home/daan/Documents/vscodeprojects/compiler/main.c"
+},
+{
+  "directory": "/home/daan/Documents/vscodeprojects/compiler/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -o CMakeFiles/compiler.dir/error_handler.c.o   -c /home/daan/Documents/vscodeprojects/compiler/error_handler.c",
+  "file": "/home/daan/Documents/vscodeprojects/compiler/error_handler.c"
+},
+{
+  "directory": "/home/daan/Documents/vscodeprojects/compiler/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -o CMakeFiles/compiler.dir/code_parser.c.o   -c /home/daan/Documents/vscodeprojects/compiler/code_parser.c",
+  "file": "/home/daan/Documents/vscodeprojects/compiler/code_parser.c"
+}
+]
