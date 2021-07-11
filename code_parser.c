@@ -110,7 +110,7 @@ void index_files(int argc, char *argv[]) {
 
 //used for the writer module to get the right file_name for the .jack file
 //copies the right file_name from argv to buffer, also removes .jack if a single file is specified by arguments
-void get_file_or_dir_name(char *argv[], char *buffer, int buffer_size) {
+void get_file_or_dir_name(char *buffer, int buffer_size) {
 
 	if(buffer_size < 128) {
 		handle_error(OTHER_ERROR, true, "Buffer that holds file_name for opening .asm file is not big enough! (size must be >=128).\nCalled by function get_file_name() in code_parser.c");
@@ -118,13 +118,13 @@ void get_file_or_dir_name(char *argv[], char *buffer, int buffer_size) {
 
 	//finding '/' if the file path contains it and skipping all stuff before file name
 	char *slash_location = NULL;
-	slash_location = strrchr(argv[1], '/'); //finding last occurrence of '/'
+	slash_location = strrchr(file_locations.strings[file_locations.current_file], '/'); //finding last occurrence of '/'
 		
 	if(slash_location != NULL) { //remove all "somestuff/someotherstuff/file_name" before filename
 		strcpy(buffer, (slash_location+1));
 	}
 	else {
-		strcpy(buffer, argv[1]);
+		strcpy(buffer, file_locations.strings[file_locations.current_file]);
 	}
 
 	//removing ".jack" from file name if it is there
@@ -236,12 +236,14 @@ void format_line() {
 			//last added character should be / so replace that with \0
 			new_buffer_index--;
 			new_buffer[new_buffer_index] = '\0';
+			slash_flag = 0;
 			break;
 		}
 		if((line_buffer[i] == '*') && slash_flag) { //for handling /*  */
 			long_comment_flag = 1;
 			new_buffer[new_buffer_index-1] = '\0';
-			break;
+			slash_flag = 0;
+			continue;
 		}
 
 		slash_flag = 0;
@@ -287,7 +289,7 @@ int get_num_value(char *string) {
 	int number_value = 0;
 	int string_length = strlen(string);
 	int i = string_length-1;
-	for(; i > 0; i--) { 
+	for(; i >= 0; i--) { 
 		if(string[i] != '0' && string[i] != '1' && 
 		string[i] != '2' && string[i] != '3' && 
 		string[i] != '4' && string[i] != '5' && 
@@ -324,14 +326,14 @@ int get_num_value(char *string) {
 int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, int string_buffer_size) {
 	//checking size of buffers
 	if(enum_buffer_size < 2) {
-		handle_error(OTHER_ERROR, true, "Buffer for holding enums in decode_line() is too small, needs size >= 3");
+		handle_error(OTHER_ERROR, true, "Buffer for holding enums in decode_token() is too small, needs size >= 2");
 	}
 	if(string_buffer_size < MAX_SYMBOL_LENGTH) {
-		handle_error(OTHER_ERROR, true, "Buffer for holding strings in decode_line() is too small, needs size >= MAX_SYMBOL_LENGTH");
+		handle_error(OTHER_ERROR, true, "Buffer for holding strings in decode_token() is too small, needs size >= MAX_SYMBOL_LENGTH");
 	}
 
 	//check if line is empty
-	if(line_buffer[0] = 0) {
+	if(line_buffer[0] == 0) {
 		return 0;
 	}
 
@@ -362,7 +364,7 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 	}
 
 	//check for " as declaration of string_constant
-	if(line_buffer[0] = '"') { //found start of string
+	if(line_buffer[0] == '"') { //found start of string
 		char *string_end = strchr(&line_buffer[1], '"'); //finding pointer to end of the string
 		int string_length = (int) (string_end - &line_buffer[1]); //getting the length of the string
 		strncpy(string_buffer, &line_buffer[1], string_length); //copying string to buffer
@@ -376,14 +378,14 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 	int num_symbols = 0;
 	num_symbols = strspn(line_buffer, "{}()[].,;+-*/&|<>=~");
 	if(num_symbols > 0) { //found symbol
-		string_buffer[0] = line_buffer[0];
-		if(string_buffer[0] = '<') {
+		string_buffer[0] = line_buffer[0]; //copy symbol to buffer
+		if(string_buffer[0] == '<') { //manage some exceptions
 			strcpy(string_buffer, "&lt;");
 		}
-		else if(string_buffer[0] = '>') {
+		else if(string_buffer[0] == '>') {
 			strcpy(string_buffer, "&gt;");
 		}
-		else if(string_buffer[0] = '&') {
+		else if(string_buffer[0] == '&') {
 			strcpy(string_buffer, "&amp;");
 		}
 		enum_buffer[0] = SYMBOL;

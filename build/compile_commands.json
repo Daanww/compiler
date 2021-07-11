@@ -13,5 +13,10 @@
   "directory": "/home/daan/Documents/vscodeprojects/compiler/build",
   "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -o CMakeFiles/compiler.dir/code_parser.c.o   -c /home/daan/Documents/vscodeprojects/compiler/code_parser.c",
   "file": "/home/daan/Documents/vscodeprojects/compiler/code_parser.c"
+},
+{
+  "directory": "/home/daan/Documents/vscodeprojects/compiler/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -o CMakeFiles/compiler.dir/writer.c.o   -c /home/daan/Documents/vscodeprojects/compiler/writer.c",
+  "file": "/home/daan/Documents/vscodeprojects/compiler/writer.c"
 }
 ]

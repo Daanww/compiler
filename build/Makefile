@@ -601,6 +601,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/main.c.s
 .PHONY : main.c.s
 
+writer.o: writer.c.o
+
+.PHONY : writer.o
+
+# target to build an object file
+writer.c.o:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/writer.c.o
+.PHONY : writer.c.o
+
+writer.i: writer.c.i
+
+.PHONY : writer.i
+
+# target to preprocess a source file
+writer.c.i:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/writer.c.i
+.PHONY : writer.c.i
+
+writer.s: writer.c.s
+
+.PHONY : writer.s
+
+# target to generate assembly for a file
+writer.c.s:
+	$(MAKE) -f CMakeFiles/compiler.dir/build.make CMakeFiles/compiler.dir/writer.c.s
+.PHONY : writer.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -650,6 +677,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... writer.o"
+	@echo "... writer.i"
+	@echo "... writer.s"
 .PHONY : help
 
 

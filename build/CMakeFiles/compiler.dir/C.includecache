@@ -28,20 +28,6 @@ code_parser.h
 stdbool.h
 -
 
-/home/daan/Documents/vscodeprojects/compiler/error_handler.c
-stdbool.h
--
-stdio.h
--
-string.h
--
-stdlib.h
--
-error_handler.h
-/home/daan/Documents/vscodeprojects/compiler/error_handler.h
-code_parser.h
-/home/daan/Documents/vscodeprojects/compiler/code_parser.h
-
 /home/daan/Documents/vscodeprojects/compiler/error_handler.h
 stdbool.h
 -

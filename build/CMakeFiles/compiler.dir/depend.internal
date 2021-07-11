@@ -10,4 +10,11 @@ CMakeFiles/compiler.dir/error_handler.c.o
  /home/daan/Documents/vscodeprojects/compiler/error_handler.c
  /home/daan/Documents/vscodeprojects/compiler/error_handler.h
 CMakeFiles/compiler.dir/main.c.o
+ /home/daan/Documents/vscodeprojects/compiler/code_parser.h
  /home/daan/Documents/vscodeprojects/compiler/main.c
+ /home/daan/Documents/vscodeprojects/compiler/writer.h
+CMakeFiles/compiler.dir/writer.c.o
+ /home/daan/Documents/vscodeprojects/compiler/code_parser.h
+ /home/daan/Documents/vscodeprojects/compiler/error_handler.h
+ /home/daan/Documents/vscodeprojects/compiler/writer.c
+ /home/daan/Documents/vscodeprojects/compiler/xml_labels.h

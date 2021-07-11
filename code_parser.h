@@ -42,13 +42,14 @@ enum token_types{
 
 
 void index_files(int argc, char *argv[]);
-void get_file_or_dir_name(char *argv[], char *buffer, int buffer_size);
+void get_file_or_dir_name(char *buffer, int buffer_size);
 int get_total_num_files();
 int open_next_jack_file();
 void get_current_file_name(char* buffer, int buffer_size);
 int get_current_line();
 int read_line();
 void format_line();
+int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, int string_buffer_size);
 void close_current_jack_file();
 
 #endif

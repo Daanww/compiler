@@ -9,5 +9,12 @@ CMakeFiles/compiler.dir/error_handler.c.o: ../code_parser.h
 CMakeFiles/compiler.dir/error_handler.c.o: ../error_handler.c
 CMakeFiles/compiler.dir/error_handler.c.o: ../error_handler.h
 
+CMakeFiles/compiler.dir/main.c.o: ../code_parser.h
 CMakeFiles/compiler.dir/main.c.o: ../main.c
+CMakeFiles/compiler.dir/main.c.o: ../writer.h
+
+CMakeFiles/compiler.dir/writer.c.o: ../code_parser.h
+CMakeFiles/compiler.dir/writer.c.o: ../error_handler.h
+CMakeFiles/compiler.dir/writer.c.o: ../writer.c
+CMakeFiles/compiler.dir/writer.c.o: ../xml_labels.h
 
