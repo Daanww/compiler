@@ -38,5 +38,37 @@ const char false_keyword[] = "<keyword> false </keyword>\n";
 const char null_keyword[] = "<keyword> null </keyword>\n";
 const char this_keyword[] = "<keyword> this </keyword>\n";
 
+//grammar identifiers
+const char term_1[] = "<term>\n";
+const char term_2[] = "</term>\n";
+const char expression_1[] = "<expression>\n";
+const char expression_2[] = "</expression>\n";
+const char return_statement_1[] = "<returnStatement>\n";
+const char return_statement_2[] = "</returnStatement>\n";
+const char do_statement_1[] = "<doStatement>\n";
+const char do_statement_2[] = "</doStatement>\n";
+const char while_statement_1[] = "<whileStatement>\n";
+const char while_statement_2[] = "</whileStatement>\n";
+const char if_statement_1[] = "<ifStatement>\n";
+const char if_statement_2[] = "</ifStatement>\n";
+const char let_statement_1[] = "<letStatement>\n";
+const char let_statement_2[] = "</letStatement>\n";
+const char statements_1[] = "<statements>\n";
+const char statements_2[] = "</statements>\n";
+const char var_dec_1[] = "<varDec>\n";
+const char var_dec_2[] = "</varDec>\n";
+const char subroutine_body_1[] = "<subroutineBody>\n";
+const char subroutine_body_2[] = "</subroutineBody>\n";
+const char parameter_list_1[] = "<parameterList>\n";
+const char parameter_list_2[] = "</parameterList>\n";
+const char subroutine_dec_1[] = "<subroutineDec>\n";
+const char subroutine_dec_2[] = "</subroutineDec>\n";
+const char class_var_dec_1[] = "<classVarDec>\n";
+const char class_var_dec_2[] = "</classVarDec>\n";
+const char class_1[] = "<class>\n";
+const char class_2[] = "</class>\n";
+
+
+
 
 #endif

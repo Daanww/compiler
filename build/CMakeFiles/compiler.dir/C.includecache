@@ -10,6 +10,10 @@
 stdbool.h
 -
 
+/home/daan/Documents/vscodeprojects/compiler/error_handler.h
+stdbool.h
+-
+
 /home/daan/Documents/vscodeprojects/compiler/main.c
 stdio.h
 -
@@ -18,5 +22,23 @@ code_parser.h
 writer.h
 /home/daan/Documents/vscodeprojects/compiler/writer.h
 
+/home/daan/Documents/vscodeprojects/compiler/writer.c
+stdio.h
+-
+string.h
+-
+writer.h
 /home/daan/Documents/vscodeprojects/compiler/writer.h
+code_parser.h
+/home/daan/Documents/vscodeprojects/compiler/code_parser.h
+error_handler.h
+/home/daan/Documents/vscodeprojects/compiler/error_handler.h
+xml_labels.h
+/home/daan/Documents/vscodeprojects/compiler/xml_labels.h
+
+/home/daan/Documents/vscodeprojects/compiler/writer.h
+
+/home/daan/Documents/vscodeprojects/compiler/xml_labels.h
+string.h
+-
 

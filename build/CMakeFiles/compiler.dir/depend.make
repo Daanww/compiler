@@ -16,5 +16,6 @@ CMakeFiles/compiler.dir/main.c.o: ../writer.h
 CMakeFiles/compiler.dir/writer.c.o: ../code_parser.h
 CMakeFiles/compiler.dir/writer.c.o: ../error_handler.h
 CMakeFiles/compiler.dir/writer.c.o: ../writer.c
+CMakeFiles/compiler.dir/writer.c.o: ../writer.h
 CMakeFiles/compiler.dir/writer.c.o: ../xml_labels.h
 

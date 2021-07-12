@@ -241,7 +241,8 @@ void format_line() {
 		}
 		if((line_buffer[i] == '*') && slash_flag) { //for handling /*  */
 			long_comment_flag = 1;
-			new_buffer[new_buffer_index-1] = '\0';
+			new_buffer_index--;
+			new_buffer[new_buffer_index] = '\0';
 			slash_flag = 0;
 			continue;
 		}
@@ -347,8 +348,11 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 	if(line_buffer[0] == ' ') {
 		strcpy(temp_buffer, &line_buffer[1]);
 		strcpy(line_buffer, temp_buffer);
+				
+		decode_token(enum_buffer, enum_buffer_size, string_buffer, string_buffer_size);
 		return 1;
 	}
+	
 
 
 	//check for digits
@@ -369,6 +373,7 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 		int string_length = (int) (string_end - &line_buffer[1]); //getting the length of the string
 		strncpy(string_buffer, &line_buffer[1], string_length); //copying string to buffer
 		enum_buffer[0] = STRING_CONST;
+		enum_buffer[1] = 0;
 		strcpy(temp_buffer, string_end+1); //removing string from line_buffer
 		strcpy(line_buffer, temp_buffer);
 		return 1;
@@ -389,6 +394,7 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 			strcpy(string_buffer, "&amp;");
 		}
 		enum_buffer[0] = SYMBOL;
+		enum_buffer[1] = 0;
 		strcpy(temp_buffer, &line_buffer[1]); //removing symbol from line_buffer
 		strcpy(line_buffer, temp_buffer);
 		return 1;
@@ -404,6 +410,9 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 	if(sequence_length > 0) {
 		sequence_length = strspn(line_buffer, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890");
 		strncpy(temp_buffer, line_buffer, sequence_length); //copy keyword/identifier to temp_buffer for identification
+
+
+
 		//trying to match with keywords
 		int i = 0;
 		const char* keywords[] = {"class", "method", "function", "constructor", "int", "boolean", "char", "void", "var", "static", "field", "let", "do", "if", "else", "while", "return", "true", "false", "null", "this"};
@@ -418,6 +427,7 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 		}
 		else { //did not find a keyword, thus it is an identifier
 			enum_buffer[0] = IDENTIFIER;
+			enum_buffer[1] = 0;
 			strcpy(string_buffer, temp_buffer); //copy the identifier to string_buffer
 		}
 
@@ -432,6 +442,8 @@ int decode_token(int *enum_buffer, int enum_buffer_size, char *string_buffer, in
 	return 1;
 
 }
+
+
 
 //close the current openend .jack file
 void close_current_jack_file() {
