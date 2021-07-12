@@ -13,6 +13,8 @@
 <keyword> void </keyword>
 <identifier> main </identifier>
 <symbol> ( </symbol>
+<parameterList>
+</parameterList>
 <symbol> ) </symbol>
 <subroutineBody>
 <symbol> { </symbol>
@@ -33,6 +35,8 @@
 <symbol> . </symbol>
 <identifier> new </identifier>
 <symbol> ( </symbol>
+<expressionList>
+</expressionList>
 <symbol> ) </symbol>
 </term>
 </expression>
@@ -44,6 +48,8 @@
 <symbol> . </symbol>
 <identifier> run </identifier>
 <symbol> ( </symbol>
+<expressionList>
+</expressionList>
 <symbol> ) </symbol>
 <symbol> ; </symbol>
 </doStatement>
@@ -53,6 +59,8 @@
 <symbol> . </symbol>
 <identifier> dispose </identifier>
 <symbol> ( </symbol>
+<expressionList>
+</expressionList>
 <symbol> ) </symbol>
 <symbol> ; </symbol>
 </doStatement>
@@ -69,6 +77,8 @@
 <keyword> void </keyword>
 <identifier> more </identifier>
 <symbol> ( </symbol>
+<parameterList>
+</parameterList>
 <symbol> ) </symbol>
 <subroutineBody>
 <symbol> { </symbol>

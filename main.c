@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
     //initialization
-	bool debug_mode = true;
+	bool debug_mode = false;
 	if(debug_mode) {
 		argc = 2;
 		argv[1] = "../test_folder";

@@ -310,10 +310,16 @@ void compile_expression() {
 }
 
 void compile_expression_list() {
+	fputs(expression_list_1, xml_file);
 	compile_expression();
 	while(token_string_buffer[0] == ',') {
+		write_token(); //write ','
+		grab_token();
 		compile_expression();
 	}
+
+	fputs(expression_list_2, xml_file);
+
 	return;
 }
 
@@ -391,6 +397,7 @@ void compile_while_statement() {
 		handle_error(OTHER_ERROR,true, "Cannot find opening brace for expression in while statement, missing '('");
 	}
 	write_token(); //write '('
+	grab_token();
 	compile_expression();
 	if(token_string_buffer[0] != ')') {
 		handle_error(OTHER_ERROR,true, "Cannot find ending brace for expression in while statement, missing ')'");
@@ -402,6 +409,7 @@ void compile_while_statement() {
 		handle_error(OTHER_ERROR,true, "Cannot find opening brace for statements in while statement, missing '{'");
 	}
 	write_token(); //write '{'
+	grab_token();
 	compile_statements();
 	if(token_string_buffer[0] != '}') {
 		handle_error(OTHER_ERROR,true, "Cannot find ending brace for statements in while statement, missing '}'");
@@ -573,9 +581,9 @@ void compile_subroutine_body() {
 }
 
 void compile_parameter_list() {
-	if(token_string_buffer[0] == ')') { //empty parameter list
-		return;
-	}
+	//if(token_string_buffer[0] == ')') { //empty parameter list
+	//	return;
+	//}
 	fputs(parameter_list_1, xml_file);
 	
 	if(token_string_buffer[0] != ')')  { //there are parameters
