@@ -70,6 +70,15 @@ const char class_var_dec_2[] = "</classVarDec>\n";
 const char class_1[] = "<class>\n";
 const char class_2[] = "</class>\n";
 
+//identifiers for code generation
+const char *identifier_category_strings[] = {"var", "argument", "static", "field", "class", "subroutine"};
+const char *defined_used_strings[] = {"defined", "used"};
+const char *kind_strings[] = {"var", "argument", "static", "field"};
+const char category_1[] = "<category>";
+const char category_2[] = "</category>\n";
+const char kind_1[] = "<kind>";
+const char kind_2[] = "</kind>\n";
+
 
 
 

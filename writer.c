@@ -5,7 +5,20 @@
 #include "code_parser.h"
 #include "error_handler.h"
 #include "xml_labels.h"
+#include "symbol_table.h"
 
+enum identifier_category_enum {
+	var_,
+	argument_,
+	static_,
+	field_,
+	class_,
+	subroutine_
+};
+enum defined_used_enum {
+	defined,
+	used
+};
 
 
 //current xml file being written to
@@ -16,6 +29,8 @@ static int current_xml_line;
 int token_enum_buffer[2];
 char token_string_buffer[MAX_SYMBOL_LENGTH];
 
+static int identifier_category;
+static int defined_used_flag;
 
 
 //uses get_file_name() to get the name for the .xml file
@@ -32,6 +47,7 @@ void open_xml_file() {
 	}
 	return;
 }
+
 
 //writes keyword token
 void write_keyword(int *enum_buffer) {
@@ -139,9 +155,25 @@ void write_symbol(char *string_buffer) {
 
 //writes identifier
 void write_identifier(char *string_buffer) {
+	//add identifier to symbol_table if it is not already there
+	
 	char temp_buffer[MAX_LINE_LENGTH] = {0};
 	sprintf(temp_buffer, "%s %s %s", identifier_1, string_buffer, identifier_2);
 	fputs(temp_buffer, xml_file);
+
+	//category
+	sprintf(temp_buffer, "%s %s %s", category_1, identifier_category_strings[identifier_category], category_2);
+
+	//defined/used
+	if(defined_used_flag == defined) {
+		fputs("<defined> </defined>\n", xml_file);
+	}
+	else if(defined_used_flag == used) {
+		fputs("<used> </used>\n", xml_file);
+	}
+
+	//kind and index
+
 	return;
 }
 
