@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/daan/Documents/vscodeprojects/compiler/code_parser.c" "/home/daan/Documents/vscodeprojects/compiler/build/CMakeFiles/compiler.dir/code_parser.c.o"
   "/home/daan/Documents/vscodeprojects/compiler/error_handler.c" "/home/daan/Documents/vscodeprojects/compiler/build/CMakeFiles/compiler.dir/error_handler.c.o"
   "/home/daan/Documents/vscodeprojects/compiler/main.c" "/home/daan/Documents/vscodeprojects/compiler/build/CMakeFiles/compiler.dir/main.c.o"
+  "/home/daan/Documents/vscodeprojects/compiler/symbol_table.c" "/home/daan/Documents/vscodeprojects/compiler/build/CMakeFiles/compiler.dir/symbol_table.c.o"
   "/home/daan/Documents/vscodeprojects/compiler/writer.c" "/home/daan/Documents/vscodeprojects/compiler/build/CMakeFiles/compiler.dir/writer.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

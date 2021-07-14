@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/compiler.dir/code_parser.c.o"
   "CMakeFiles/compiler.dir/error_handler.c.o"
   "CMakeFiles/compiler.dir/main.c.o"
+  "CMakeFiles/compiler.dir/symbol_table.c.o"
   "CMakeFiles/compiler.dir/writer.c.o"
   "compiler"
   "compiler.pdb"
